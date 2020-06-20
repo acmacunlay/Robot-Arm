@@ -104,6 +104,7 @@
     if (Bluetooth.available() > 0) {
       dataIn = Bluetooth.read();
 
+      // assigning value for every possible movement of each servo
       if (dataIn == 0)  { m = 0; }  //stop movement
       if (dataIn == 1)  { m = 1; }  //reset position
       if (dataIn == 2)  { m = 2; }  //servo01 +
