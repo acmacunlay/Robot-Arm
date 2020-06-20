@@ -99,217 +99,217 @@
 
 // LOOP
 
-void loop() {
+  void loop() {
 
-  if (Bluetooth.available() > 0) {
-    dataIn = Bluetooth.read();
+    if (Bluetooth.available() > 0) {
+      dataIn = Bluetooth.read();
 
-    if (dataIn == 0)  { m = 0; }  //stop movement
-    if (dataIn == 1)  { m = 1; }  //reset position
-    if (dataIn == 2)  { m = 2; }  //servo01 +
-    if (dataIn == 3)  { m = 3; }  //servo01 -
-    if (dataIn == 4)  { m = 4; }  //servo02 +
-    if (dataIn == 5)  { m = 5; }  //servo02 -
-    if (dataIn == 6)  { m = 6; }  //servo03 +
-    if (dataIn == 7)  { m = 7; }  //servo03 -
-    if (dataIn == 8)  { m = 8; }  //servo04 +
-    if (dataIn == 9)  { m = 9; }  //servo04 -
-    if (dataIn == 10) { m = 10; } //servo05 +
-    if (dataIn == 11) { m = 11; } //servo05 -
-    if (dataIn == 12) { m = 12; } //servo06 +
-    if (dataIn == 13) { m = 13; } //servo06 -
-    
-    //reset position
-    while (m == 1) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
-      }
-      servo01.write(norm_servo01);
-      pos_servo01 = norm_servo01;
-      servo02.write(norm_servo02);
-      pos_servo02 = norm_servo02;
-      servo03.write(norm_servo03);
-      pos_servo03 = norm_servo03;
-      servo04.write(norm_servo04);
-      pos_servo04 = norm_servo04;
-      servo05.write(norm_servo05);
-      pos_servo05 = norm_servo05;
-      servo06.write(norm_servo06);
-      pos_servo06 = norm_servo06;
+      if (dataIn == 0)  { m = 0; }  //stop movement
+      if (dataIn == 1)  { m = 1; }  //reset position
+      if (dataIn == 2)  { m = 2; }  //servo01 +
+      if (dataIn == 3)  { m = 3; }  //servo01 -
+      if (dataIn == 4)  { m = 4; }  //servo02 +
+      if (dataIn == 5)  { m = 5; }  //servo02 -
+      if (dataIn == 6)  { m = 6; }  //servo03 +
+      if (dataIn == 7)  { m = 7; }  //servo03 -
+      if (dataIn == 8)  { m = 8; }  //servo04 +
+      if (dataIn == 9)  { m = 9; }  //servo04 -
+      if (dataIn == 10) { m = 10; } //servo05 +
+      if (dataIn == 11) { m = 11; } //servo05 -
+      if (dataIn == 12) { m = 12; } //servo06 +
+      if (dataIn == 13) { m = 13; } //servo06 -
       
-    }
+      //reset position
+      while (m == 1) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo01.write(norm_servo01);
+        pos_servo01 = norm_servo01;
+        servo02.write(norm_servo02);
+        pos_servo02 = norm_servo02;
+        servo03.write(norm_servo03);
+        pos_servo03 = norm_servo03;
+        servo04.write(norm_servo04);
+        pos_servo04 = norm_servo04;
+        servo05.write(norm_servo05);
+        pos_servo05 = norm_servo05;
+        servo06.write(norm_servo06);
+        pos_servo06 = norm_servo06;
+        
+      }
 
-    //servo01 +
-    while (m == 2) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo01 +
+      while (m == 2) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo01.write(pos_servo01);
+        if (pos_servo01 < max_servo01) {
+          pos_servo01++;
+        } if (pos_servo01 == max_servo01) {
+          pos_servo01 = max_servo01;
+        }
+        delay(delayInterval);
       }
-      servo01.write(pos_servo01);
-      if (pos_servo01 < max_servo01) {
-        pos_servo01++;
-      } if (pos_servo01 == max_servo01) {
-        pos_servo01 = max_servo01;
-      }
-      delay(delayInterval);
-    }
 
-    //servo01 -
-    while (m == 3) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo01 -
+      while (m == 3) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo01.write(pos_servo01);
+        if (pos_servo01 > min_servo01) {
+          pos_servo01--;
+        } if (pos_servo01 == min_servo01) {
+          pos_servo01 = min_servo01;
+        }
+        delay(delayInterval);
       }
-      servo01.write(pos_servo01);
-      if (pos_servo01 > min_servo01) {
-        pos_servo01--;
-      } if (pos_servo01 == min_servo01) {
-        pos_servo01 = min_servo01;
-      }
-      delay(delayInterval);
-    }
 
-    //servo02 +
-    while (m == 4) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo02 +
+      while (m == 4) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo02.write(pos_servo02);
+        if (pos_servo02 < max_servo02) {
+          pos_servo02++;
+        } if (pos_servo02 == max_servo02) {
+          pos_servo02 = max_servo02;
+        }
+        delay(delayInterval);
       }
-      servo02.write(pos_servo02);
-      if (pos_servo02 < max_servo02) {
-        pos_servo02++;
-      } if (pos_servo02 == max_servo02) {
-        pos_servo02 = max_servo02;
-      }
-      delay(delayInterval);
-    }
 
-    //servo02 -
-    while (m == 5) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo02 -
+      while (m == 5) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo02 .write(pos_servo02);
+        if (pos_servo02 > min_servo02) {
+          pos_servo02--;
+        } if (pos_servo02 == min_servo02) {
+          pos_servo02 = min_servo02;
+        }
+        delay(delayInterval);
       }
-      servo02 .write(pos_servo02);
-      if (pos_servo02 > min_servo02) {
-        pos_servo02--;
-      } if (pos_servo02 == min_servo02) {
-        pos_servo02 = min_servo02;
-      }
-      delay(delayInterval);
-    }
 
-    //servo03 +
-    while (m == 6) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo03 +
+      while (m == 6) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo03.write(pos_servo03);
+        if (pos_servo03 < max_servo03) {
+          pos_servo03++;
+        } if (pos_servo03 == max_servo03) {
+          pos_servo03 = max_servo03;
+        }
+        delay(delayInterval);
       }
-      servo03.write(pos_servo03);
-      if (pos_servo03 < max_servo03) {
-        pos_servo03++;
-      } if (pos_servo03 == max_servo03) {
-        pos_servo03 = max_servo03;
-      }
-      delay(delayInterval);
-    }
 
-    //servo03 -
-    while (m == 7) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo03 -
+      while (m == 7) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo03.write(pos_servo03);
+        if (pos_servo03 > min_servo03) {
+          pos_servo03--;
+        } if (pos_servo03 == min_servo03) {
+          pos_servo03 = min_servo03;
+        }
+        delay(delayInterval);
       }
-      servo03.write(pos_servo03);
-      if (pos_servo03 > min_servo03) {
-        pos_servo03--;
-      } if (pos_servo03 == min_servo03) {
-        pos_servo03 = min_servo03;
-      }
-      delay(delayInterval);
-    }
 
-    //servo04 +
-    while (m == 8) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
-      }
-      servo04.write(pos_servo04);
-      pos_servo04++;
-      if (pos_servo04 < max_servo04) {
+      //servo04 +
+      while (m == 8) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo04.write(pos_servo04);
         pos_servo04++;
-      } if (pos_servo04 == max_servo04) {
-        pos_servo04 = max_servo04;
+        if (pos_servo04 < max_servo04) {
+          pos_servo04++;
+        } if (pos_servo04 == max_servo04) {
+          pos_servo04 = max_servo04;
+        }
+        delay(delayInterval);
       }
-      delay(delayInterval);
-    }
 
-    //servo04 -
-    while (m == 9) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo04 -
+      while (m == 9) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo04.write(pos_servo04);
+        if (pos_servo04 > min_servo04) {
+          pos_servo04--;
+        } if (pos_servo04 == min_servo04) {
+          pos_servo04 = min_servo04;
+        }
+        delay(delayInterval);
       }
-      servo04.write(pos_servo04);
-      if (pos_servo04 > min_servo04) {
-        pos_servo04--;
-      } if (pos_servo04 == min_servo04) {
-        pos_servo04 = min_servo04;
-      }
-      delay(delayInterval);
-    }
 
-    //servo05 +
-    while (m == 10) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo05 +
+      while (m == 10) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo05.write(pos_servo05);
+        if (pos_servo05 < max_servo05) {
+          pos_servo05++;
+        } if (pos_servo05 == max_servo05) {
+          pos_servo05 = max_servo05;
+        }
+        delay(delayInterval);
       }
-      servo05.write(pos_servo05);
-      if (pos_servo05 < max_servo05) {
-        pos_servo05++;
-      } if (pos_servo05 == max_servo05) {
-        pos_servo05 = max_servo05;
-      }
-      delay(delayInterval);
-    }
 
-    //servo05 -
-    while (m == 11) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo05 -
+      while (m == 11) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo05.write(pos_servo05);
+        if (pos_servo05 > min_servo05) {
+          pos_servo05--;
+        } if (pos_servo05 == min_servo05) {
+          pos_servo05 = min_servo05;
+        }
+        delay(delayInterval);
       }
-      servo05.write(pos_servo05);
-      if (pos_servo05 > min_servo05) {
-        pos_servo05--;
-      } if (pos_servo05 == min_servo05) {
-        pos_servo05 = min_servo05;
-      }
-      delay(delayInterval);
-    }
 
-    //servo06 +
-    while (m == 12) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo06 +
+      while (m == 12) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo06.write(pos_servo06);
+        if (pos_servo06 < max_servo06) {
+          pos_servo06++;
+        } if (pos_servo06 == max_servo06) {
+          pos_servo06 = max_servo06;
+        }
+        delay(delayInterval);
       }
-      servo06.write(pos_servo06);
-      if (pos_servo06 < max_servo06) {
-        pos_servo06++;
-      } if (pos_servo06 == max_servo06) {
-        pos_servo06 = max_servo06;
-      }
-      delay(delayInterval);
-    }
 
-    //servo06 -
-    while (m == 13) {
-      if (Bluetooth.available() > 0) {
-        m = Bluetooth.read();
+      //servo06 -
+      while (m == 13) {
+        if (Bluetooth.available() > 0) {
+          m = Bluetooth.read();
+        }
+        servo06.write(pos_servo06);
+        if (pos_servo06 > min_servo06) {
+          pos_servo06--;
+        } if (pos_servo06 == min_servo06) {
+          pos_servo06 = min_servo06;
+        }
+        delay(delayInterval);
       }
-      servo06.write(pos_servo06);
-      if (pos_servo06 > min_servo06) {
-        pos_servo06--;
-      } if (pos_servo06 == min_servo06) {
-        pos_servo06 = min_servo06;
-      }
-      delay(delayInterval);
+      
     }
     
   }
-  
-}
 
 // END OF LOOP
