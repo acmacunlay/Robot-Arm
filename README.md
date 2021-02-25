@@ -1,30 +1,26 @@
 # RobotArm
  
-    PROJECT: ROBOT ARM
+## Project Name:
+**Robot Arm**
 
-    BY:
-        Achilles Macunlay
-        Jon Thaddeus Laguitao
+## Developers:
+- Achilles C. Macunlay
+- Jon Thaddeus F. Laguitao
 
-    DESCRIPTION:
+## Description:
 
-        This project is a simple Arduino-based robot arm that can be controlled via Bluetooth through an Android app.
+This project is a simple Arduino-based robot arm that can be controlled via Bluetooth 
+using an Android app.
 
-    FILES:
+## Files:
 
-        RobotArm.aia :
-        Use this if you want to modify the Android app. 
-        This can be modified with MIT App Inventor or Kodular (preferably Kodular).
+- **RobotArm.aia** - Use this if you want to modify the Android app. This can be modified with MIT App Inventor or Kodular (preferably Kodular).
 
-        RobotArm.apk :
-        This is the ready-to-install Android app to control the arm.
+- **RobotArm.apk** - This is the ready-to-install Android app to control the arm.
 
-        RobotArm.ino :
-        Use this if you want to calibrate or modify the robot arm's configurations.
-        This can be modified with Arduino IDE (preferably).
+- **RobotArm.ino** - Use this if you want to calibrate or modify the robot arm's configurations. This can be modified with Arduino IDE (preferably).
 
-    REFERENCES:
+## References:
 
-        3D Models ,circuit diagram, code (partly) for the arm:
-        https://howtomechatronics.com/tutorials/arduino/diy-arduino-robot-arm-with-smartphone-control/
-        https://howtomechatronics.com/projects/arduino-robot-arm-and-mecanum-wheels-platform-automatic-operation/
+- [3D Models](https://howtomechatronics.com/tutorials/arduino/diy-arduino-robot-arm-with-smartphone-control/)
+- [Code](https://howtomechatronics.com/projectsarduino-robot-arm-and-mecanum-wheels-platform-automatic-operation/)
