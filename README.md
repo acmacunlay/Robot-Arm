@@ -1,7 +1,4 @@
-# RobotArm
- 
-## Project Name:
-**Robot Arm**
+# robot-arm
 
 ## Developers:
 - Achilles C. Macunlay
